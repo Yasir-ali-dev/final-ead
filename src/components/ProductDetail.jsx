@@ -1,10 +1,11 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BASE_URL_EXAM } from '../const/APIs';
 import { Button, ButtonGroup, Card, Col, Container, Row } from 'react-bootstrap';
+import { MyExamContext } from '../context/FinalExamContext';
 
 const ProductDetail = () => {
-    
+    const context = useContext(MyExamContext);
     const [product,setProduct]=useState({});
 
     async function fetchAllProducts(){
@@ -32,13 +33,14 @@ const ProductDetail = () => {
                 <h3>QUANTITY:</h3>
                 <div>
                     <ButtonGroup>
-                        <Button>-</Button>
-                        <Button>0</Button>
-                        <Button>+</Button>
+                        <Button onClick={()=> {context.setState(context.state-1) }}>-</Button>
+                        <Button>{context.state}</Button>
+                        <Button
+                         onClick={()=> {context.setState(context.state+1) }}>+</Button>
                     </ButtonGroup>
                     <Button>ADD TO CART</Button>
                 </div>
-                <h3>SubTotal: 0</h3>
+                <h3>SubTotal: {context.state*product.price}</h3>
             </Col>
 
         </Row>

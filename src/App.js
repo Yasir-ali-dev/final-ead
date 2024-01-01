@@ -11,8 +11,9 @@ export default function App() {
     <div>
       <Header />
       <Routes>
-        <Route path={"/"} element={<HeroSection />}></Route>
-        <Route path={"/productdetail"} element={<ProductDetail />}></Route>
+        <Route path={"/"} element={<HeroSection />}>
+          <Route path={"/:id"} element={<ProductDetail />} />
+        </Route>
       </Routes>
       <TopSellers />
       <Footer />

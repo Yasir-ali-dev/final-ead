@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 export const MyExamContext = createContext();
 
 export const MyExamInformationProvider = ({ children }) => {
-  const [state, setState] = useState("");
+  const [state, setState] = useState(0);
   return (
     <MyExamContext.Provider
       value={{

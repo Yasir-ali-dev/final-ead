@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { BASE_URL_EXAM } from '../const/APIs';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 const AllProducts = () => {
 
     const [products,setProducts]=useState([]);
@@ -29,16 +30,18 @@ const AllProducts = () => {
        <Row className='d-flex gap-2 py-5 mt-3'>
         {products.map((_,index)=>{
             return (
-                <Card key={_.id} style={{ width: '16rem' }}>
+              <Card key={_.id} style={{ width: '16rem',  }}>
+                  <Link to={`/${index}`} style={{textDecoration:"none"}}>
                 <div 
                     className='d-flex justify-content-center align-items-center pt-3'
-                >
+                    >
                     <img src={_.image} width={"170px"} alt='_' />
                 </div>    
                 <Card.Body style={{textAlign:"center"}}>
                   <h5>{_.category}</h5>
                   <h5 style={{color:"#024E82"}}>{_.price}</h5>
                 </Card.Body>
+              </Link>
               </Card>
             )
         })}
