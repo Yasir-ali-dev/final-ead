@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import HeroSection from "./components/HeroSection";
+import TopSellers from "./components/TopSellers";
+import ProductDetail from "./components/ProductDetail";
 
 export default function App() {
   return (
@@ -10,7 +12,9 @@ export default function App() {
       <Header />
       <Routes>
         <Route path={"/"} element={<HeroSection />}></Route>
+        <Route path={"/productdetail"} element={<ProductDetail />}></Route>
       </Routes>
+      <TopSellers />
       <Footer />
     </div>
   );

@@ -21,7 +21,7 @@ const NavbarComponent = () => {
         {
           arr.map((_,index)=>{
             return (
-              <div >
+              <div key={index}>
                 <img src={`/${_}`} alt="_image"  />
               </div>
             )

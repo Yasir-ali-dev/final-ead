@@ -1,3 +1,11 @@
+import AllProducts from "./AllProducts";
+import Services from "./Services";
+
 export default function HeroSection() {
-  return <></>;
+  return (
+    <>
+      <AllProducts />
+      <Services />
+    </>
+  );
 }
